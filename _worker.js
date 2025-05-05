@@ -16,7 +16,7 @@ export default {
       const resp = await fetch(sourceURL);
       rawText = await resp.text();
     } catch (e) {
-      return new Response("Failed to fetch source", { status: 500 });
+      return new Response("Failed to fetch source: " + e.message, { status: 500 });
     }
 
     const lines = rawText.split('\n').map(l => l.trim()).filter(Boolean);
@@ -45,7 +45,6 @@ export default {
         clearTimeout(timeout);
 
         if (res && res.status >= 200 && res.status < 500) {
-          // 可选添加延迟到节点名
           if (addLatency && line.includes("#")) {
             const [urlPart, name] = line.split("#");
             const newName = ${decodeURIComponent(name)}|${delay}ms;
@@ -55,7 +54,7 @@ export default {
           }
         }
       } catch (_) {
-        // 跳过错误节点
+        // ignore error
       }
     }
 
