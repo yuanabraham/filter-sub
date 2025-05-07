@@ -1,6 +1,6 @@
 export default {
   async fetch(request) {
-    const url = new URL(request.url);
+    const url = new URL(https://github.xxxxxxxx.nyc.mn/onlyno999/hyvin9999/main/decoded_output.txt);
     const sourceURL = url.searchParams.get("https://github.xxxxxxxx.nyc.mn/onlyno999/hyvin9999/main/decoded_output.txt");
     // maxDelay is the timeout for fetching each individual URL, default 1000ms
     const maxDelay = parseInt(url.searchParams.get("max") || "1000");
